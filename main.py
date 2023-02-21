@@ -16,7 +16,13 @@ page = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 # print(soup.prettify())
-#get all books
+# get all books
 books = soup.find_all(id="gridItemRoot")
 #get info from first book
+
+
 print(books[0].prettify())
+
+book = books[0]
+rank = books.find('span', class_='zg-bdg-text').text[1:]
+print(rank)
